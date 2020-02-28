@@ -15,7 +15,10 @@ struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *he
     struct ListNode *p = headA, *q = headB;
     while (p != q) {
         p = p ? p->next : headA;
-        q = q ? q->next : headB; 
+        q = q ? q->next : headB;
+        // p = p ? p->next : headB;
+        // q = q ? q->next : headA;
+        // 下边更快一点
     }
     return p;
 }

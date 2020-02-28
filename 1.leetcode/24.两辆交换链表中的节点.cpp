@@ -4,6 +4,9 @@
 	> Mail: 
 	> Created Time: 2020年02月26日 星期三 17时37分59秒
  ************************************************************************/
+//主要是交换，画个图就理解了
+//ret 还是虚拟头结点
+
 struct ListNode* swapPairs(struct ListNode* head){
     struct ListNode ret, *p, *q;
     ret.next = head;
