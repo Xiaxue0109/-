@@ -11,6 +11,8 @@
  *     struct ListNode *next;
  * };
  */
+ //找到开始环的位置，让快指针走一个环的长度，再相遇就是
+ //进环的位置。
 struct ListNode *detectCycle(struct ListNode *head) {
    struct ListNode *p = head, *q = head;
    while (q) {
