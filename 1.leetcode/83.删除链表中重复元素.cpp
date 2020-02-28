@@ -5,32 +5,28 @@
 	> Created Time: 2020年02月26日 星期三 17时43分56秒
  ************************************************************************/
 
-struct ListNode LNode, *LinkList;
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+//主要考察就是删除节点。
 
 struct ListNode* deleteDuplicates(struct ListNode* head){
-    if ( head == NULL )
-    {
-        return head;
-    }
-    
-    LinkList cur = head->next;
-    LinkList pre = head;
-    
-    while ( cur )
-    {
-        while ( cur && cur->val == pre->val)
-        {
-            cur = cur->next;
-        }
-        
-        pre->next = cur;
-        
-        if ( cur )
-        {
-            cur = cur->next;
-            pre = pre->next;
+    struct ListNode *p, *q;
+    p = head;
+    while (p && p->next) {
+        if (p->val != p->next->val) {
+            p = p->next;
+        } else {
+            q = p->next;
+            p->next = q->next;
+            free(q);
         }
     }
-    
     return head;
 }

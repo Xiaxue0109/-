@@ -5,32 +5,26 @@
 	> Created Time: 2020年02月26日 星期三 17时47分47秒
  ************************************************************************/
 
-struct ListNode LNode, *LinkList;
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
 
-struct ListNode* deleteDuplicates(struct ListNode* head){
-    if ( head == NULL )
-    {
-        return head;
+//主要是考察快慢指针问题（追击问题），快的先为NULL说明没有环，若有环快慢指针会在某一点相遇。
+
+bool hasCycle(struct ListNode *head) {
+    struct ListNode *fast = head, *low = head;
+    if (head == NULL) {
+        return false;
     }
-    
-    LinkList cur = head->next;
-    LinkList pre = head;
-    
-    while ( cur )
-    {
-        while ( cur && cur->val == pre->val)
-        {
-            cur = cur->next;
-        }
-        
-        pre->next = cur;
-        
-        if ( cur )
-        {
-            cur = cur->next;
-            pre = pre->next;
-        }
-    }
-    
-    return head;
+    do {
+        low = low->next;
+        fast = fast->next;
+        if (fast == NULL || fast->next == NULL) return false;
+        fast = fast->next;
+    } while (fast != low);
+    return true;
 }
