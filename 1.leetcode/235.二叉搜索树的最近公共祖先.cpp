@@ -38,6 +38,7 @@ struct TreeNode* lowestCommonAncestor(struct TreeNode* root, struct TreeNode* p,
  
 struct TreeNode* lowestCommonAncestor(struct TreeNode* root, struct TreeNode* p, struct TreeNode* q) { 
     if (root == NULL) return NULL;
+    //表示p q 在树的两侧
     if (((root->val - p->val) * (root->val - q->val)) <= 0) return root;
     if (root->val > p->val) {
         return lowestCommonAncestor(root->left, p, q);
