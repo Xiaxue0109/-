@@ -18,6 +18,7 @@ int main() {
         for (int j = i + 1; j < 10; j++) {
             if (strcmp(names[m], names[j]) > 0) {
                 m = j;
+            //strcmp > 0 则str1 > str2;
             }
         }
         strcpy(temp, names[i]);
