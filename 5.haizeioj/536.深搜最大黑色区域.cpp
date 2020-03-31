@@ -33,11 +33,10 @@ int main() {
         for (int j = 1; j <= m; j++) {
             if (mmap[i][j] == '1') {
                 mmap[i][j] = '0';
-                ans++;
+                ans = 1;
                 func(i, j);
-                //mmax = max(mmax, ans);
+                mmax = max(mmax, ans);
             }
-            mmax = max(mmax, ans);
         }
     }
     cout << mmax << endl;
